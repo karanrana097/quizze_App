@@ -1,6 +1,7 @@
 import 'question.dart';
 class Quizbrain{
-  List<Question> questionBank = [
+  int _quesno = 0;
+  List<Question> _questionBank = [
     Question(q:'Some cats are actually allergic to humans', a:true),
     Question(q:'You can lead a cow down stairs but not up stairs.',a: false),
     Question(q:'Approximately one quarter of human bones are in the feet.', a:true),
@@ -20,7 +21,17 @@ class Quizbrain{
         'Chocolate affects a dog\'s heart and nervous system; a few ounces are enough to kill a small dog.', a:true),
     Question(q:
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',a: true),
-
   ];
+  void nextques(){
+    if(_quesno<_questionBank.length){
+      _quesno++;
+    }
 
+  }
+  String getQuestion(){
+    return _questionBank[_quesno].questionText;
+  }
+  bool getAns(){
+    return _questionBank[_quesno].questionAns;
+  }
 }
