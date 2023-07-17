@@ -33,6 +33,19 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scorekeeper=[];
 
+  void chekAns(bool userPickedAns){
+    bool correctAns = quizBrain.getAns();
+    setState((){
+    if(correctAns==userPickedAns){
+      scorekeeper.add(Icon(Icons.check, color: Colors.green));
+    }
+    else{
+      scorekeeper.add(Icon(Icons.close, color: Colors.red));
+    }
+      quizBrain.nextques();
+      });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,22 +84,16 @@ class _QuizPageState extends State<QuizPage> {
                 ),
                 onPressed: () {
                   quizBrain.nextques();
-                  bool correctAns = quizBrain.getAns();
-                  if(correctAns==true){
-                    print('User got it right');
-                  }
-                  else{
-                    print('User got it wrong');
-                  }
+                  chekAns(true);
 
-                  setState(() {
-                    scorekeeper.add(
-                      const Icon(
-                        Icons.check,
-                        color: Colors.green,
-                      ),
-                    );
-                  });
+                  // setState(() {
+                  //   scorekeeper.add(
+                  //     const Icon(
+                  //       Icons.check,
+                  //       color: Colors.green,
+                  //     ),
+                  //   );
+                  // });
                 },
               ),
             ),
@@ -106,19 +113,15 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
-                  quizBrain.nextques();
-                  bool correcAns = quizBrain.getAns();
-                  if(correcAns==false){
-                    print('User got it right');
-                  }
-                  setState(() {
-                    scorekeeper.add(
-                      const Icon(
-                        Icons.close,
-                        color: Colors.red,
-                      ),
-                    );
-                  });
+                  chekAns(false);
+                  // setState(() {
+                  //   scorekeeper.add(
+                  //     const Icon(
+                  //       Icons.close,
+                  //       color: Colors.red,
+                  //     ),
+                  //   );
+                  // });
 
                 },
               ),
