@@ -43,10 +43,8 @@ class _QuizPageState extends State<QuizPage> {
       scorekeeper.add(Icon(Icons.close, color: Colors.red));
     }
       quizBrain.nextques();
-      });
+    });
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -83,17 +81,7 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
-                  quizBrain.nextques();
                   chekAns(true);
-
-                  // setState(() {
-                  //   scorekeeper.add(
-                  //     const Icon(
-                  //       Icons.check,
-                  //       color: Colors.green,
-                  //     ),
-                  //   );
-                  // });
                 },
               ),
             ),
@@ -114,15 +102,6 @@ class _QuizPageState extends State<QuizPage> {
                 ),
                 onPressed: () {
                   chekAns(false);
-                  // setState(() {
-                  //   scorekeeper.add(
-                  //     const Icon(
-                  //       Icons.close,
-                  //       color: Colors.red,
-                  //     ),
-                  //   );
-                  // });
-
                 },
               ),
             ),
