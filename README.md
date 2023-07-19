@@ -17,7 +17,7 @@ Add more trivia questions.
 Improve the user interface.
 Add a timer to the app.
 Author
-This app was created by [Your Name].
+This app was created by KARAN RANA.
 
 License
 This project is licensed under the MIT License.
